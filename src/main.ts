@@ -8,11 +8,15 @@ gsap.config({ nullTargetWarn: false });
 function createHomeHero() {
   const DOM = {
     heading1: document.querySelector(".word1"),
+    heading2: document.querySelector(".word2"),
+    heading3: document.querySelector(".word3"),
   
   };
 
   const selector = {
     animate: gsap.utils.selector(DOM.heading1),
+    can: gsap.utils.selector(DOM.heading2),
+    heal: gsap.utils.selector(DOM.heading3)
 
   };
 
@@ -93,17 +97,96 @@ function createHomeHero() {
     });
   }
 
+  function letter4_5() {
+    const tl = gsap.timeline({ defaults: defaults });
+    const topChars = selector.can(
+      ".c> div:first-of-type, .a2> div:first-of-type"
+    );
+    const bottomChars = selector.can(
+      ".c> div:last-of-type, .a2> div:last-of-type"
+    );
+
+    tl.fromTo(
+      bottomChars,
+      { yPercent: 100 },
+      {
+        keyframes: {
+          yPercent: [100, 0, 100, 0],
+          ease: "power1.out",
+        },
+        duration: 3,
+        stagger: 0.4,
+      }
+    );
+
+    tl.fromTo(
+      topChars,
+      {
+        yPercent: -100,
+      },
+      {
+        keyframes: {
+          yPercent: [-100, -100, 20, -100],
+          ease: "power1.out",
+        },
+        duration: 3,
+        stagger: 0.4,
+      },
+      "<"
+    );
+
+    return tl;
+  }
+
+  function letter6() {
+    const char = selector.can(".n > div");
+    return gsap.from(char, {
+      rotationY: -180,
+      duration: 1,
+      scale: 0,
+    });
+  }
+
+
+  function letter7() {
+    const tl = gsap.timeline({ defaults: defaults });
+    const wrap = selector.heal(".h > div");
+    const char = selector.heal(".h > div > div");
+
+    tl.set(wrap, { transformOrigin: "50% 100%" });
+    tl.from(char, { yPercent: 100 });
+    tl.from(
+      wrap,
+      { rotationX: -180, ease: "back.out(1.7)", duration: 1.2 },
+      "-=.6"
+    );
+
+    return tl;
+  }
+
+  function letter8() {
+    const char = selector.animate(".u > div");
+    return gsap.from(char, {
+      yPercent: -100,
+      ease: "back.out(1.6)",
+      duration: 1,
+    });
+  }
+
   function createTimeline() {
     const tl = gsap.timeline({
       id: "hero",
       defaults: defaults,
     });
 
-    tl.set([DOM.heading1], { autoAlpha: 1 });
+    tl.set([DOM.heading1, DOM.heading2, DOM.heading3], { autoAlpha: 1 });
 
     tl.add(letter1());
     tl.add(letter2(), 0.3);
     tl.add(letter3(), 1.1);
+    tl.add(letter4_5(), 1.1);
+    tl.add(letter6(), 1.1);
+    tl.add(letter7(), 1.1);
   }
 
   return {

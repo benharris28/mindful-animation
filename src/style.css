@@ -137,6 +137,10 @@ button:focus-visible {
   visibility: hidden;
 }
 
+.heading-text-2 {
+  visibility: hidden;
+}
+
 .o-text-wrap-1 {
   backface-visibility: hidden;
 }
@@ -195,4 +199,18 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.c-wrap-second {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 0;
+}
+
+.a2-wrap-second {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  left: 0;
 }
