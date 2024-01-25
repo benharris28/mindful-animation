@@ -87,8 +87,19 @@ button:focus-visible {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 7%;
-  padding-right: 7%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media only screen and (min-width: 48rem) {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    max-width: 90rem;
+  }
 }
 
 .home-hero {
