@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 16px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -14,6 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+* {
+  box-sizing: border-box;
+}
+
 
 a {
   font-weight: 500;
@@ -79,10 +83,22 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
 .home-hero {
   overflow: hidden;
   padding-bottom: 2.1875rem;
   padding-top: 30vh;
+  position: relative;
+}
+
+.home-hero__inner {
   position: relative;
 }
 
@@ -98,8 +114,8 @@ button:focus-visible {
 @media only screen and (min-width: 77.5rem) {
   .home-hero {
     min-height: 100vh;
-    padding-bottom: 8.75rem;
-    padding-top: 13.75rem;
+    padding-bottom: 9rem;
+    padding-top: 7rem;
   }
 }
 
@@ -108,7 +124,7 @@ button:focus-visible {
 }
 
 .heading-xl {
-  font-size: max(3.125rem, min(13.3333vw + 2rem, 18rem));
+  font-size: max(5.125rem, min(13.3333vw + 2rem, 18rem));
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 0.9;
@@ -139,6 +155,8 @@ button:focus-visible {
 
 .heading-text-2 {
   visibility: hidden;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .o-text-wrap-1 {
@@ -213,4 +231,25 @@ button:focus-visible {
   top: 0;
   bottom: auto;
   left: 0;
+}
+
+.subtitle__paragraph {
+  font-size: max(0.875rem, min(0.647249vw + 0.723301rem, 1.5rem));
+  max-width: max(28.125rem, min(13.2813vw + 18.75rem, 24.6875rem));
+}
+
+.hero__button {
+  position: absolute;
+  top: auto;
+  bottom: 6px;
+  left: auto;
+  right: 0%;
+
+}
+
+@media only screen and (max-width: 48rem) {
+  .hero__button {
+    position: relative;
+    margin-top: 2rem;
+  }
 }

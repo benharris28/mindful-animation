@@ -165,12 +165,39 @@ function createHomeHero() {
   }
 
   function letter8() {
-    const char = selector.animate(".u > div");
+    const char = selector.heal(".e > div > div");
     return gsap.from(char, {
       yPercent: -100,
       ease: "back.out(1.6)",
       duration: 1,
     });
+  }
+
+  function letter9() {
+    const tl = gsap.timeline({ defaults: defaults });
+    const char = selector.heal(".a3 div");
+
+    tl.from(char, { xPercent: -100 });
+
+    return tl;
+  }
+
+  function letter10() {
+    const tl = gsap.timeline({ defaults: defaults });
+    const char = selector.heal(".l div div");
+
+    tl.from(
+      char,
+      {
+        autoAlpha: 0,
+        rotationZ: -120,
+        duration: 2,
+        ease: "elastic.out(1, 0.4)",
+      },
+      "<.6"
+    );
+
+    return tl;
   }
 
   function createTimeline() {
@@ -187,6 +214,9 @@ function createHomeHero() {
     tl.add(letter4_5(), 1.1);
     tl.add(letter6(), 1.1);
     tl.add(letter7(), 1.1);
+    tl.add(letter8(), 1.1);
+    tl.add(letter9(), 1.1);
+    tl.add(letter10(), 1.1);
   }
 
   return {
